@@ -1,0 +1,35 @@
+{{ define "title" }}Dashboard - Proxy Logs{{ end }}
+
+{{ define "content" }}
+<section class="dashboard">
+  <h2>Access Logs</h2>
+  <input type="text" id="search" placeholder="Search logs..." />
+  <table id="logs-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>IP</th>
+        <th>Port</th>
+        <th>Path</th>
+        <th>Protocol</th>
+        <th>Auth</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range . }}
+      <tr>
+        <td>{{ .Time }}</td>
+        <td>{{ .IP }}</td>
+        <td>{{ .Port }}</td>
+        <td>{{ .Path }}</td>
+        <td>{{ .Protocol }}</td>
+        <td>{{ .AuthOK }}</td>
+        <td>{{ .Action }}</td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</section>
+<script src="/static/js/dashboard.js"></script>
+{{ end }}

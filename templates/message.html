@@ -1,0 +1,9 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "content" }}
+<div class="message-container">
+  <h2>{{ .Title }}</h2>
+  <p>{{ .Message }}</p>
+  <a href="/">Back to home</a>
+</div>
+{{ end }}

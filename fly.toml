@@ -1,0 +1,32 @@
+app = "proxy-gateway"
+primary_region = "ams"
+
+[env]
+PORT = "8080"
+
+[mounts]
+source = "proxy_gateway_data"
+destination = "/data"
+
+[[services]]
+internal_port = 8080
+protocol = "tcp"
+auto_stop_machines = "stop"
+auto_start_machines = false
+min_machines_running = 0
+
+[[services.ports]]
+port = 80
+
+[[services.ports]]
+port = 443
+
+[[services.ports]]
+port = 25565
+
+[[services.ports]]
+port = 24454
+
+[services.concurrency]
+hard_limit = 25
+soft_limit = 20
